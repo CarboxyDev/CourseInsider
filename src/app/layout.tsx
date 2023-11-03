@@ -7,10 +7,11 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'next-carboxy-starter',
-  description: 'Created using carboxydev/next-carboxy-starter',
-  category: '',
-  keywords: [],
+  title: 'CourseInsider',
+  description:
+    'An easy to use portal for browsing and understanding your college courses well',
+  category: 'education',
+  keywords: ['course', 'college', 'education', 'degree'],
 };
 
 export default function RootLayout(props: { children: React.ReactNode }) {
