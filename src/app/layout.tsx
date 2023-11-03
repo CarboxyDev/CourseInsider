@@ -22,7 +22,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       <body
         className={cn(
           inter.className,
-          process.env.DEV == 'true' && 'debug-screens',
+          process.env.NODE_ENV === 'development' && 'debug-screens',
           'bg-zinc-100 text-zinc-900'
         )}
       >
