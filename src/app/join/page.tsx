@@ -91,20 +91,25 @@ export default function JoinPage() {
       </div>
       <div className="mt-20 md:mt-48">
         {code === 'invalid' && (
-          <div className="flex flex-row items-center gap-x-4 justify-center">
-            <input
-              type="text"
-              className="h-12 w-40 md:w-64 lg:w-80 px-4 text-lg placeholder:text-zinc-500 appearance-none focus:outlin-primary-500 placeholder:font-light text-zinc-600 border border-zinc-300 bg-zinc-100 rounded-md"
-              placeholder="College code"
-              onChange={(e) => setInput(e.target.value)}
-            />
-            <button
-              onClick={(e) => handleJoin(e)}
-              className="rounded-md h-12 w-32 text-lg font-medium text-white bg-primary-400"
-            >
-              JOIN
-            </button>
-          </div>
+          <>
+            <div className="flex flex-row items-center gap-x-4 justify-center">
+              <input
+                type="text"
+                className="h-12 w-40 md:w-64 lg:w-80 px-4 text-lg placeholder:text-zinc-500 appearance-none focus:outlin-primary-500 placeholder:font-light text-zinc-600 border border-zinc-300 bg-zinc-100 rounded-md"
+                placeholder="College code"
+                onChange={(e) => setInput(e.target.value)}
+              />
+              <button
+                onClick={(e) => handleJoin(e)}
+                className="rounded-md h-12 w-32 text-lg font-medium text-white bg-primary-400"
+              >
+                JOIN
+              </button>
+            </div>
+            <div className="text-center mt-24 font-light text-sm text-zinc-400">
+              Pssst, you can join IIIT Delhi with the code b4bf48cf7955
+            </div>
+          </>
         )}
         {code != 'invalid' && <JoinRequest code={code} />}
       </div>
