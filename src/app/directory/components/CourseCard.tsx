@@ -17,9 +17,10 @@ export const CourseCard = (props: CourseCardProps) => {
         <div className="flex flex-col gap-y-3">
           <Link
             href={href}
-            className="text-zinc-600 font-medium text-xl hover:underline"
+            className="text-zinc-600 relative font-medium text-xl hover:underline"
           >
             {course.name}
+            <span className="text-xs absolute -right-3">🡥</span>
           </Link>
           <div className="flex gap-x-2">
             <Badge
