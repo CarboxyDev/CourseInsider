@@ -58,9 +58,14 @@ export const Search = (props: SearchProps) => {
             );
           })}
       </div>
-      {query.length === 0 && filteredOptions.length === 0 && (
-        <p className="py-6 text-center text-zinc-600"></p>
-      )}
+      {query.length === 0 &&
+        courses.map((course, i) => {
+          return (
+            <div className="mt-9" key={i}>
+              <CourseCard key={i} course={course} />
+            </div>
+          );
+        })}
       {query && filteredOptions.length === 0 && (
         <p className="py-6 text-center text-zinc-600">No results found</p>
       )}
