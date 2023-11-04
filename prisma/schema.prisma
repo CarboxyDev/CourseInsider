@@ -58,7 +58,8 @@ model VerificationToken {
 }
 
 model Course {
-  id          String   @id @default(cuid())
+  id          String   @id @default(dbgenerated("uuid_generate_v1()")) @db.Text
+  collegeId   String   @default(dbgenerated("uuid_generate_v1()")) @db.Text
   name        String
   description String
   code        String
@@ -77,17 +78,17 @@ model Course {
 }
 
 model Review {
-  id       String @id @default(cuid())
-  rating   Float
-  comment  String
-  courseId String
-  userId   String
+  id         String   @id @default(dbgenerated("uuid_generate_v1()")) @db.Text
+  rating     Float
+  comment    String
+  courseId   String
+  userId     String
   authorName String
   reviewedOn DateTime @default(now())
 }
 
 model GradingStructure {
-  id       String @id @default(cuid())
+  id       String @id @default(dbgenerated("uuid_generate_v1()")) @db.Text
   courseId String
-  data     String @db.VarChar(500) @default("[]")
+  data     String @default("[]") @db.VarChar(500)
 }
