@@ -1,4 +1,5 @@
 'use client';
+import CourseContent from '@/app/course/[id]/components/CourseContent';
 import Reviews from '@/app/course/[id]/components/Reviews';
 import { Course } from '@/lib/types';
 import * as Tabs from '@radix-ui/react-tabs';
@@ -42,7 +43,7 @@ const NavTabs = (props: NavTabsProps) => {
         <GradingTable courseId={course.id} />
       </Tabs.Content>
       <Tabs.Content value="course-content">
-        insert course content here
+        <CourseContent />
       </Tabs.Content>
       <Tabs.Content value="weekly-plan">
         <WeeklyPlanTable

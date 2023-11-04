@@ -65,6 +65,7 @@ export async function GET_COURSE(req: Request, res: Response) {
           collegeId: 'demo',
         },
       });
+
       return SendResponse(
         JSON.stringify({
           college: { name: 'Public View', id: 'demo' },
