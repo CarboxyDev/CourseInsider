@@ -1,4 +1,4 @@
-import { RatingStars } from '@/components/Rating';
+import { StarRating } from '@/components/StarRating';
 import { MockReviews } from '@/lib/mockup';
 import Image from 'next/image';
 
@@ -32,7 +32,7 @@ const Reviews = () => {
                     {review.reviewedOn.toLocaleDateString()}
                   </span>
                 </div>
-                <RatingStars
+                <StarRating
                   rating={review.rating}
                   readonly={true}
                   activeFillColor="#38BDF8"
