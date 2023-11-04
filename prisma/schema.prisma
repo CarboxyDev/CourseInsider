@@ -85,3 +85,9 @@ model Review {
   authorName String
   reviewedOn DateTime @default(now())
 }
+
+model GradingStructure {
+  id       String @id @default(cuid())
+  courseId String
+  data     String @db.VarChar(500) @default("[]")
+}

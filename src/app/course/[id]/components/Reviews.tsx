@@ -50,9 +50,7 @@ const Reviews = (props: ReviewsProps) => {
                 <Image
                   height={40}
                   width={40}
-                  src={`https://api.dicebear.com/7.x/adventurer/png?seed=${
-                    review.id + review.authorName + review.comment.length
-                  }`}
+                  src={`https://api.dicebear.com/7.x/adventurer/png?seed=${review.userId}`}
                   className="rounded-full w-10 h-10 border border-zinc-200"
                   alt="avatar"
                 />

@@ -39,13 +39,7 @@ const NavTabs = (props: NavTabsProps) => {
         <Reviews courseId={course.id} />
       </Tabs.Content>
       <Tabs.Content value="grading">
-        <GradingTable
-          gradingComponents={[
-            { name: 'Midterm', weight: 30 },
-            { name: 'Final', weight: 40 },
-            { name: 'Assignments', weight: 30 },
-          ]}
-        />
+        <GradingTable courseId={course.id} />
       </Tabs.Content>
       <Tabs.Content value="course-content">
         insert course content here
