@@ -60,7 +60,18 @@ export async function GET_COURSE(req: Request, res: Response) {
     const user = getUser.user;
 
     if (!user) {
-      return getUser.errorResponse;
+      const courses = await prisma.course.findMany({
+        where: {
+          collegeId: 'demo',
+        },
+      });
+      return SendResponse(
+        JSON.stringify({
+          college: { name: 'Public View', id: 'demo' },
+          courses: courses,
+        }),
+        200
+      );
     }
 
     try {
@@ -69,6 +80,7 @@ export async function GET_COURSE(req: Request, res: Response) {
           collegeId: user.collegeId,
         },
       });
+      console.log(user.collegeId);
 
       const college = await prisma.college.findFirst({
         where: {
