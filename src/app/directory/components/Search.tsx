@@ -9,10 +9,11 @@ import { CourseCard } from './CourseCard';
 
 interface SearchProps {
   courses: Course[];
+  resultsDisabled?: boolean;
 }
 
 export const Search = (props: SearchProps) => {
-  const { courses } = props;
+  const { courses, resultsDisabled } = props;
 
   const [query, setQuery] = useState<string>('');
   const router = useRouter();
@@ -46,6 +47,7 @@ export const Search = (props: SearchProps) => {
       <div className="divide-y-[1px] divide-zinc-200">
         {query.length > 0 &&
           filteredOptions &&
+          !resultsDisabled &&
           filteredOptions.map((option, i) => {
             const course = courses.find((course) => course.id === option.id);
             if (!course) {
@@ -58,12 +60,13 @@ export const Search = (props: SearchProps) => {
             );
           })}
       </div>
-      {query.length === 0 && courses.length === 0 && (
-        <div className="text-2xl font-semibold text-zinc-700">
-          No courses available
+      {query.length === 0 && courses.length === 0 && !resultsDisabled && (
+        <div className="text-2xl font-semibold text-center text-zinc-700">
+          No courses available {':('}
         </div>
       )}
       {query.length === 0 &&
+        !resultsDisabled &&
         courses.map((course, i) => {
           return (
             <div className="mt-9" key={i}>
@@ -71,7 +74,7 @@ export const Search = (props: SearchProps) => {
             </div>
           );
         })}
-      {query && filteredOptions.length === 0 && (
+      {query && filteredOptions.length === 0 && !resultsDisabled && (
         <p className="py-6 text-center text-zinc-600">No results found</p>
       )}
     </div>
