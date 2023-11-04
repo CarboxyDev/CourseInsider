@@ -1,12 +1,16 @@
+import { cn } from '@/lib/util';
 import { Rating, ThinStar } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
 
 interface RatingProps {
   rating: number;
+  activeFillColor: string;
+  inactiveFillColor: string;
+  className: string;
 }
 
 const RatingStars = (props: RatingProps) => {
-  const { rating } = props;
+  const { rating, activeFillColor, inactiveFillColor, className } = props;
 
   return (
     <Rating
@@ -15,10 +19,10 @@ const RatingStars = (props: RatingProps) => {
       readOnly
       itemStyles={{
         itemShapes: ThinStar,
-        activeFillColor: '#facc15',
-        inactiveFillColor: '#a1a1aa',
+        activeFillColor: activeFillColor,
+        inactiveFillColor: inactiveFillColor,
       }}
-      className="w-6 h-6"
+      className={cn(className)}
     />
   );
 };

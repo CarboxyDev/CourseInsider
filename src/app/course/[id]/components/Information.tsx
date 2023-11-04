@@ -32,7 +32,12 @@ const CourseInformation = (props: CourseInformationProps) => {
             />
           )}
         </div>
-        <Rating rating={course.rating} />
+        <Rating
+          rating={course.rating}
+          activeFillColor="#facc15"
+          inactiveFillColor="#a1a1aa"
+          className="w-6 h-6"
+        />
       </div>
       <div className="mt-18">
         <div>
