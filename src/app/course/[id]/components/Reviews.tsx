@@ -93,7 +93,9 @@ const Reviews = (props: ReviewsProps) => {
             </div>
           );
         })}
-        <Comment />
+        <div className="mt-32">
+          <Comment />
+        </div>
       </div>
     );
   }
