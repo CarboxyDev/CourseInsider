@@ -1,5 +1,5 @@
 import { PageWrapper } from '@/components/PageWrapper';
-import { CourseCard } from './components/CourseCard';
+import { Search } from './components/Search';
 
 const DirectoryPage = () => {
   const courses = [
@@ -37,13 +37,8 @@ const DirectoryPage = () => {
         <h1 className="text-3xl font-semibold text-zinc-600 mr-6">
           Course Directory
         </h1>
-        <div className="divide-y-[1px] divide-zinc-200">
-          {courses.map((course, i) => (
-            <div key={i} className="mt-9">
-              <CourseCard {...course} />
-            </div>
-          ))}
-        </div>
+        <div className="mt-14"></div>
+        <Search courses={courses} />
       </div>
     </PageWrapper>
   );
