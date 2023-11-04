@@ -1,3 +1,4 @@
+import { Comment } from '@/app/course/[id]/components/Comment';
 import { LoadingSpinner } from '@/components/Loading';
 import { StarRating } from '@/components/StarRating';
 import { Review } from '@/lib/types';
@@ -81,6 +82,7 @@ const Reviews = (props: ReviewsProps) => {
             </div>
           );
         })}
+        <Comment />
       </div>
     );
   }

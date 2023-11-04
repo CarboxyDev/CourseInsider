@@ -3,7 +3,6 @@ import NavTabs from '@/app/course/[id]/components/NavTabs';
 import { PageWrapper } from '@/components/PageWrapper';
 import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
-import { Comment } from './components/Comment';
 
 interface PageParams {
   id: string;
@@ -38,7 +37,6 @@ export default async function page(props: PageProps) {
       <div className="mt-25">
         <NavTabs course={sanitizeCourse} />
       </div>
-      <Comment />
     </PageWrapper>
   );
 }
