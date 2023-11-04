@@ -71,6 +71,7 @@ const Reviews = (props: ReviewsProps) => {
                     activeFillColor="#38BDF8"
                     inactiveFillColor="#a1a1aa"
                     className="w-6 h-6"
+                    maxWidth={100}
                   />
                 </div>
                 <div className="mt-4 mb-9 font-light text-zinc-600">

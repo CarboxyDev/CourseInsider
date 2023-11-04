@@ -44,6 +44,7 @@ export const CourseCard = (props: CourseCardProps) => {
           inactiveFillColor="#A1A1AA"
           readonly={true}
           className="w-6 h-6"
+          maxWidth={100}
         />
       </div>
       <p className="mt-4 text-base text-zinc-500 leading-7 max-h-14 text-ellipsis line-clamp-2">
