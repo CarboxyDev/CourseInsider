@@ -2,6 +2,7 @@
 import Reviews from '@/app/course/[id]/components/Reviews';
 import * as Tabs from '@radix-ui/react-tabs';
 import { GradingTable } from './GradingTable';
+import { WeeklyPlanTable } from './WeeklyPlanTable';
 
 interface TabOptionProps {
   value: string;
@@ -43,7 +44,28 @@ const NavTabs = () => {
       <Tabs.Content value="course-content">
         insert course content here
       </Tabs.Content>
-      <Tabs.Content value="weekly-plan">insert weekly plan here</Tabs.Content>
+      <Tabs.Content value="weekly-plan">
+        <WeeklyPlanTable
+          gradingComponents={[
+            {
+              week: 1,
+              topics: ['Introduction to the course', 'Grading Components'],
+            },
+            {
+              week: 2,
+              topics: ['Introduction to the course', 'Grading Components'],
+            },
+            {
+              week: 3,
+              topics: ['Introduction to the course', 'Grading Components'],
+            },
+            {
+              week: 4,
+              topics: ['Introduction to the course', 'Grading Components'],
+            },
+          ]}
+        />
+      </Tabs.Content>
     </Tabs.Root>
   );
 };
