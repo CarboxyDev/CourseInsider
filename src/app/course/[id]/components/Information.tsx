@@ -1,5 +1,6 @@
 import { Badge } from '@/components/Badge';
 import { Course } from '@/lib/types';
+import Rating from './Rating';
 
 interface CourseInformationProps {
   course: Course;
@@ -31,7 +32,7 @@ const CourseInformation = (props: CourseInformationProps) => {
             />
           )}
         </div>
-        <div className="ml-auto"></div>
+        <Rating rating={course.rating} />
       </div>
       <div className="mt-18">
         <div>

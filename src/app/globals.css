@@ -17,3 +17,8 @@ textarea {
 input:focus {
   outline-style: solid;
 }
+
+.star-gradient {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
