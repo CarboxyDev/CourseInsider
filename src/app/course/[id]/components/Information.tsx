@@ -32,13 +32,16 @@ const CourseInformation = (props: CourseInformationProps) => {
             />
           )}
         </div>
-        <StarRating
-          rating={course.rating}
-          readonly={true}
-          activeFillColor="#facc15"
-          inactiveFillColor="#a1a1aa"
-          className="w-6 h-6"
-        />
+        <div className="flex items-center gap-x-2 text-sm text-zinc-600 font-medium">
+          {course.rating}
+          <StarRating
+            rating={course.rating}
+            readonly={true}
+            activeFillColor="#facc15"
+            inactiveFillColor="#a1a1aa"
+            className="w-6 h-6"
+          />
+        </div>
       </div>
       <div className="mt-18">
         <div>
