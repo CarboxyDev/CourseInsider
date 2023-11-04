@@ -15,7 +15,7 @@ const ExplanationCard = (props: ExplanationCardProps) => {
     <>
       <div
         className={cn(
-          'w-80 rounded-xl border border-zinc-200 shadow-md transition duration-500 ease-in-out hover:scale-105 hover:border-zinc-300 md:w-72 xl:w-90 2xl:w-80',
+          'w-80 rounded-xl border border-zinc-300 bg-[#FCFCFC] transition duration-500 ease-in-out hover:scale-105 hover:border-zinc-300 md:w-72 xl:w-90 2xl:w-80',
           order === 4 && 'md:row-start-2 xl:row-auto'
         )}
       >
@@ -31,8 +31,10 @@ const ExplanationCard = (props: ExplanationCardProps) => {
             />
           </div>
           <div className="mt-10">
-            <h4 className="text-xl font-medium text-zinc-700">{title}</h4>
-            <p className="mt-3 text-base leading-7 text-zinc-500">{content}</p>
+            <h4 className="text-xl font-medium text-zinc-600">{title}</h4>
+            <p className="mt-3 text-base leading-7 font-light text-zinc-500">
+              {content}
+            </p>
           </div>
         </div>
       </div>
@@ -59,7 +61,7 @@ const WorkingExplanationGrid = () => {
     },
     {
       order: 3,
-      title: 'Course Status',
+      title: 'Weekly Plans',
       iconName: 'pajamas:status',
       content:
         'Check course availability and seat status. Secure your spot in your desired courses.',
@@ -69,7 +71,7 @@ const WorkingExplanationGrid = () => {
       title: 'Grading Scheme',
       iconName: 'icon-park-outline:list-two',
       content:
-        'Explore transparent grading schemes for each course. Understand grading criteria and excel in your studies.',
+        'Explore transparent grading schemes for each course. Understand grading criteria before taking the course.',
     },
   ];
   return (
@@ -96,7 +98,7 @@ export const FeaturesSection = () => {
     <>
       <div className="flex flex-col">
         <h3 className="text-gradient mx-auto inline text-3xl font-semibold md:text-6xl">
-          Loaded with Features
+          What Makes Us Special?
         </h3>
         <div className="mt-24 flex justify-center md:mt-30">
           <WorkingExplanationGrid />

@@ -10,7 +10,7 @@ export const CTA = () => {
         </h3>
         <div>
           <Link href="/">
-            <button className="mt-12 rounded-lg text-zinc-700 bg-zinc-100 px-14 py-3 text-xl font-medium transition delay-200 duration-300 ease-in-out hover:scale-105 hover:cursor-pointer active:scale-95 md:mt-20">
+            <button className="mt-12 rounded-lg text-zinc-600 bg-zinc-100 px-14 py-3 text-xl font-medium transition delay-200 duration-300 ease-in-out hover:scale-105 hover:cursor-pointer active:scale-95 md:mt-20">
               I&apos;m ready
             </button>
           </Link>

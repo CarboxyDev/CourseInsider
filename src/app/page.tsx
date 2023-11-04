@@ -23,7 +23,7 @@ export default function HomePage() {
         <Image
           src={hero}
           alt="Hero Image"
-          className="border borer-zinc-400 rounded-xl shadow-lg w-2/3 mt-20 shadow-sky-300"
+          className="border borer-zinc-400 rounded-xl shadow-md w-2/3 mt-20 shadow-sky-300"
         />
         <div className="mt-40"></div>
         <FeaturesSection />
