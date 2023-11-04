@@ -20,3 +20,45 @@ export const mockCourses: Course[] = [
     ratedByCount: 15,
   },
 ];
+
+interface MockReview {
+  id: string;
+  author: string;
+  image?: string;
+  rating: number;
+  comment: string;
+  reviewedOn: Date;
+}
+
+export const MockReviews: MockReview[] = [
+  {
+    id: '1',
+    author: 'John Doe',
+    rating: 4.5,
+    comment:
+      "Computer Networks was an eye-opening experience. Dr. Vijay Kumar's teaching style made complex topics digestible. The course's hands-on labs and real-world applications enriched our understanding. Networking protocols, security, and troubleshooting were covered comprehensively. I highly recommend it to anyone interested in networking technologies",
+    reviewedOn: new Date('2023-10-15'),
+  },
+  {
+    id: '2',
+    author: 'Alice Smith',
+    rating: 3.3,
+    comment: "It's an okay course, but could use some improvements.",
+    reviewedOn: new Date('2023-10-17'),
+  },
+  {
+    id: '3',
+    author: 'Bob Johnson',
+    rating: 5.0,
+    comment: 'Outstanding course, exceeded my expectations!',
+    reviewedOn: new Date('2023-10-19'),
+  },
+  {
+    id: '4',
+    author: 'Emily Wilson',
+    rating: 2.5,
+    comment:
+      'I had high hopes for Computer Networks, but unfortunately, it fell short of my expectations. The material was often presented in a confusing manner, and the assignments felt disconnected from the lectures. I expected a deeper dive into advanced topics. The course quality needs improvement for a more satisfying experience.',
+    reviewedOn: new Date('2023-10-22'),
+  },
+];

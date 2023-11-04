@@ -56,7 +56,7 @@ const CoreInformation = (props: CourseInformationProps) => {
       <div className="mr-auto">
         <div>
           <h3 className="font-medium inline">Prerequisites: </h3>
-          <span className="text-zinc-500 font-light">
+          <span className="text-zinc-600 font-light">
             {course.prerequisites.map((prerequisite, index) => {
               return (
                 prerequisite +

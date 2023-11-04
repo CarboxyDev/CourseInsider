@@ -1,4 +1,5 @@
 'use client';
+import Reviews from '@/app/course/[id]/components/Reviews';
 import * as Tabs from '@radix-ui/react-tabs';
 
 interface TabOptionProps {
@@ -26,7 +27,9 @@ const NavTabs = () => {
         <TabOption value="course-content" label="Course content" />
         <TabOption value="weekly-plan" label="Weekly plan" />
       </Tabs.List>
-      <Tabs.Content value="reviews">insert reviews here</Tabs.Content>
+      <Tabs.Content value="reviews">
+        <Reviews />
+      </Tabs.Content>
       <Tabs.Content value="grading">insert grading critera here</Tabs.Content>
       <Tabs.Content value="course-content">
         insert course content here
