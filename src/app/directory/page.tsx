@@ -37,7 +37,7 @@ const DirectoryPage = () => {
         </div>
       </div>
       <div className="mt-14"></div>
-      {status != 'success' && <Search courses={[]} />}
+      {status != 'success' && <Search courses={[]} resultsDisabled={true} />}
       {status == 'pending' && (
         <div className="flex justify-center">
           <LoadingSpinner size={64} />
