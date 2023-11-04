@@ -22,6 +22,7 @@ export const Comment = (props: CommentProps) => {
 
   const [rating, setRating] = useState(0);
   const [content, setContent] = useState('');
+  const [disabled, setDisabled] = useState(false);
 
   const postReview = useMutation({
     mutationFn: async () => {
@@ -54,8 +55,11 @@ export const Comment = (props: CommentProps) => {
     },
     onSuccess: () => {
       console.log('Successfully posted review');
-      setContent('');
       refetchFn();
+    },
+    onSettled: () => {
+      setContent('');
+      setDisabled(false);
     },
   });
 
@@ -65,8 +69,10 @@ export const Comment = (props: CommentProps) => {
       notify('You cannot rate 0 stars!', 'warning');
       return;
     }
+    setDisabled(true);
     postReview.mutate();
   };
+  console.log(disabled);
 
   return (
     <div className="flex flex-col">
@@ -76,6 +82,7 @@ export const Comment = (props: CommentProps) => {
         placeholder="Tell us about your experience in this course. Leave blank for rating only."
         value={content}
         onChange={(e) => setContent(e.target.value)}
+        disabled={disabled}
       />
       <div className="flex justify-between mt-3 items-center">
         <StarRating
@@ -88,7 +95,8 @@ export const Comment = (props: CommentProps) => {
         />
         <button
           onClick={(e) => handleSubmit(e)}
-          className="px-5 py-3 bg-primary-500 text-zinc-50 rounded-lg"
+          className="px-5 py-3 bg-primary-500 text-zinc-50 rounded-lg disabled:opacity-50"
+          disabled={disabled}
         >
           Submit review
         </button>
