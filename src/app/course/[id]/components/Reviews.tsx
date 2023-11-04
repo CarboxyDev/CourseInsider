@@ -45,7 +45,7 @@ const Reviews = (props: ReviewsProps) => {
           <div className="text-2xl font-semibold text-zinc-600 flex justify-center">
             No reviews yet. Be the first one to review!
           </div>
-          <Comment />
+          <Comment courseId={courseId} />
         </div>
       );
     }
@@ -62,7 +62,11 @@ const Reviews = (props: ReviewsProps) => {
                 <Image
                   height={40}
                   width={40}
-                  src={`https://api.dicebear.com/7.x/adventurer/png?seed=${review.userId}`}
+                  src={
+                    review.authorAvatar
+                      ? review.authorAvatar
+                      : `https://api.dicebear.com/7.x/adventurer/png?seed=${review.userId}`
+                  }
                   className="rounded-full w-10 h-10 border border-zinc-200"
                   alt="avatar"
                 />
@@ -94,7 +98,7 @@ const Reviews = (props: ReviewsProps) => {
           );
         })}
         <div className="mt-32">
-          <Comment />
+          <Comment courseId={courseId} />
         </div>
       </div>
     );

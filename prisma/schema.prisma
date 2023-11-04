@@ -91,6 +91,7 @@ model Review {
   courseId   String
   userId     String
   authorName String
+  authorAvatar String?
   reviewedOn DateTime @default(now())
 }
 

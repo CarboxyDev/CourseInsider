@@ -14,7 +14,7 @@ const Footer = () => {
             </span>
             <Badge text={'BETA'} size={'md'} color={'primary'} />
           </p>
-          <p className="mt-6 font-light text-dark-500">
+          <p className="mt-6 font-light text-zinc-500">
             © 2023 Arman & Aditya. All rights reserved.
           </p>
         </div>

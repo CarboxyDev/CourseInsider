@@ -23,6 +23,7 @@ export interface Review {
   courseId: string;
   userId: string;
   authorName: string;
+  authorAvatar?: string;
   reviewedOn: Date;
 }
 

@@ -3,7 +3,7 @@
 import { cn } from '@/lib/util';
 import { Rating, ThinStar } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
-import { useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
 interface RatingProps {
   rating: number;
@@ -12,11 +12,13 @@ interface RatingProps {
   inactiveFillColor: string;
   className?: string;
   maxWidth: number;
+  setRating?: Dispatch<SetStateAction<number>>;
 }
 
 export const StarRating = (props: RatingProps) => {
   const {
     rating,
+    setRating,
     readonly,
     activeFillColor,
     inactiveFillColor,
@@ -24,12 +26,10 @@ export const StarRating = (props: RatingProps) => {
     maxWidth,
   } = props;
 
-  const [currentRating, setCurrentRating] = useState<number>(rating);
-
   return (
     <Rating
       style={{ maxWidth: maxWidth }}
-      value={currentRating}
+      value={rating}
       readOnly={readonly}
       itemStyles={{
         itemShapes: ThinStar,
@@ -37,7 +37,7 @@ export const StarRating = (props: RatingProps) => {
         inactiveFillColor: inactiveFillColor,
       }}
       className={cn(className)}
-      onChange={setCurrentRating}
+      onChange={setRating}
     />
   );
 };
