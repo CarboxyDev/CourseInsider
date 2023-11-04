@@ -45,7 +45,7 @@ export const CourseCard = (props: CourseCardProps) => {
           maxWidth={100}
         />
       </div>
-      <p className="mt-4 text-base text-zinc-500 leading-7 max-h-14 text-ellipsis line-clamp-2">
+      <p className="mt-4 text-light text-zinc-600 leading-7 max-h-14 text-ellipsis line-clamp-2">
         {course.description}
       </p>
     </div>

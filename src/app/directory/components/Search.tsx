@@ -58,6 +58,11 @@ export const Search = (props: SearchProps) => {
             );
           })}
       </div>
+      {query.length === 0 && courses.length === 0 && (
+        <div className="text-2xl font-semibold text-zinc-700">
+          No courses available
+        </div>
+      )}
       {query.length === 0 &&
         courses.map((course, i) => {
           return (
