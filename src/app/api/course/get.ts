@@ -54,6 +54,32 @@ export async function GET_COURSE(req: Request, res: Response) {
     }
   }
 
+  if (query == 'weekly-plan') {
+    try {
+      const courseId = searchParams.get('courseid');
+
+      if (!courseId) {
+        return SendResponse(
+          'You must provide a courseid to fetch the weekly plan',
+          400
+        );
+      }
+
+      const weeklyPlan = await prisma.weeklyPlan.findFirst({
+        where: {
+          courseId: courseId,
+        },
+      });
+
+      if (!weeklyPlan) {
+        return SendResponse(JSON.stringify([]), 200);
+      }
+      return SendResponse(JSON.stringify(weeklyPlan), 200);
+    } catch (error) {
+      return SendResponse('An error occured on the server', 500);
+    }
+  }
+
   if (query == 'fetch-courses') {
     const session = await getServerSession(authOptions);
     const getUser = await getUserFromSession(session);

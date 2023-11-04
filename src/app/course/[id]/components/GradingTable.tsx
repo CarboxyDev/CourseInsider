@@ -19,7 +19,7 @@ interface GradingComponent {
   weight: string;
 }
 
-interface ApiData {
+interface ApiResponse {
   id: string;
   courseId: string;
   data: string;
@@ -35,7 +35,7 @@ export const GradingTable = (props: GradingTableProps) => {
         `/api/course/?q=grading&courseid=${courseId}`
       );
 
-      return JSON.parse(data) as ApiData;
+      return JSON.parse(data) as ApiResponse;
     },
   });
 
@@ -59,7 +59,7 @@ export const GradingTable = (props: GradingTableProps) => {
     if (!data.data) {
       return (
         <div className="flex justify-center text-zinc-700 text-2xl font-semibold">
-          No Grading structure provided
+          No Grading structure provided for this course
         </div>
       );
     }

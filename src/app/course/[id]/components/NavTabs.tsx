@@ -46,26 +46,7 @@ const NavTabs = (props: NavTabsProps) => {
         <CourseContent />
       </Tabs.Content>
       <Tabs.Content value="weekly-plan">
-        <WeeklyPlanTable
-          gradingComponents={[
-            {
-              week: 1,
-              topics: ['Introduction to the course', 'Grading Components'],
-            },
-            {
-              week: 2,
-              topics: ['Introduction to the course', 'Grading Components'],
-            },
-            {
-              week: 3,
-              topics: ['Introduction to the course', 'Grading Components'],
-            },
-            {
-              week: 4,
-              topics: ['Introduction to the course', 'Grading Components'],
-            },
-          ]}
-        />
+        <WeeklyPlanTable courseId={course.id} />
       </Tabs.Content>
     </Tabs.Root>
   );

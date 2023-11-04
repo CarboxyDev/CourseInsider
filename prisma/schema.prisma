@@ -99,3 +99,9 @@ model GradingStructure {
   courseId String
   data     String @default("[]") @db.VarChar(500)
 }
+
+model WeeklyPlan {
+  id       String @id @default(dbgenerated("uuid_generate_v1()")) @db.Text
+  courseId String
+  data     String @default("[]") @db.VarChar(1000)
+}
