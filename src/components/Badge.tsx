@@ -3,7 +3,7 @@ import { cn } from '@/lib/util';
 interface BadgeProps {
   text: string;
   size: 'md' | 'lg';
-  color: 'neutral' | 'success' | 'primary';
+  color: 'neutral' | 'success' | 'primary' | 'warning' | 'danger';
   emphasizeText?: boolean;
 }
 
@@ -22,7 +22,11 @@ export const Badge = (props: BadgeProps) => {
         color == 'neutral' &&
           'border-zinc-500 text-zinc-500 hover:border-transparent hover:bg-zinc-500 hover:text-white',
         color == 'success' &&
-          'border-success-500 text-success-500 hover:border-transparent hover:bg-success-500 hover:text-white'
+          'border-success-500 text-success-500 hover:border-transparent hover:bg-success-500 hover:text-white',
+        color == 'warning' &&
+          'border-warning-500 text-warning-500 hover:border-transparent hover:bg-warning-500 hover:text-white',
+        color == 'danger' &&
+          'border-danger-500 text-danger-500 hover:border-transparent hover:bg-danger-500 hover:text-white'
       )}
     >
       {text}
