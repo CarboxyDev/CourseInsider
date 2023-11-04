@@ -59,7 +59,7 @@ model VerificationToken {
 
 model Course {
   id          String   @id @default(dbgenerated("uuid_generate_v1()")) @db.Text
-  collegeId   String   @default(dbgenerated("uuid_generate_v1()")) @db.Text
+  collegeId   String   
   name        String
   description String
   code        String
