@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import { cn } from '@/lib/util';
 import { Toaster } from 'react-hot-toast';
@@ -13,6 +14,7 @@ export const PageWrapper = (props: { children: React.ReactNode }) => {
         <Navbar variant="with-branding" drawDivider={true} />
         <main className="flex flex-col">{children}</main>
         <div className="mt-24"></div>
+        <Footer />
       </div>
     </>
   );
