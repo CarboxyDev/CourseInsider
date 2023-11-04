@@ -7,6 +7,15 @@
   --indigo-400: #818cf8;
   --indigo-400: #a78bfa;
   --purple-400: #c084fc;
+  --blue-400: #76aaff;
+  --blue-500: #3b82f6;
+  --sky-500: #0ea5e9;
+  --violet-400: #a78bfa;
+  --violet-500: #8b5cf6;
+  --indigo-500: #6366f1;
+  --red-400: #f87171;
+  --red-500: #ef4444;
+  --red-600: #dc2626;
 }
 
 * {
@@ -29,6 +38,32 @@ input:focus {
   background: #0ea5e9;
   background: linear-gradient(to right, #0ea5e9 0%, #6366f1 100%);
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: -200% center;
+  }
+}
+
+.magic-text {
+  display: inline-block;
+  animation: background-pan 4s linear infinite;
+  background: linear-gradient(
+    to right,
+    var(--sky-500),
+    var(--indigo-500),
+    var(--violet-400),
+    var(--sky-500)
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
