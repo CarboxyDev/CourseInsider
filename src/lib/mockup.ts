@@ -16,5 +16,7 @@ export const mockCourses: Course[] = [
     semester: 'Winter',
     totalSeats: 340,
     availableSeats: 70,
+    rating: 4.5,
+    ratedByCount: 15,
   },
 ];

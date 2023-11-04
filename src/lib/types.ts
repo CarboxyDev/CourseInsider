@@ -12,4 +12,6 @@ export interface Course {
   semester: string;
   totalSeats: number;
   availableSeats: number;
+  rating: number;
+  ratedByCount: number;
 }
