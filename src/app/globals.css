@@ -18,7 +18,7 @@ input:focus {
   outline-style: solid;
 }
 
-.headline-gradient {
+.text-gradient {
   background: #0ea5e9;
   background: linear-gradient(to right, #0ea5e9 0%, #6366f1 100%);
   -webkit-background-clip: text;
