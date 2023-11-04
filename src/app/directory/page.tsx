@@ -32,6 +32,13 @@ const DirectoryPage = () => {
             {!data && 'Courses'}
             {data && 'Courses in ' + data.college.name}
           </h1>
+          <div className="ml-auto">
+            {data?.college.name == 'Public View' && (
+              <button className="rounded-md bg-primary-500 px-3 py-2 text-sm text-white shadow-sm transition delay-200 duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-purple-500/90 active:scale-95">
+                JOIN COLLEGE
+              </button>
+            )}
+          </div>
         </div>
       </div>
       <div className="mt-14"></div>
