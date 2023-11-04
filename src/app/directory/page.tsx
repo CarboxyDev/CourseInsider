@@ -29,11 +29,9 @@ const DirectoryPage = () => {
       <div className="mt-14">
         <div className="flex flex-row">
           <h1 className="text-3xl font-semibold text-zinc-600 mr-6">
-            Course Directory
-          </h1>
-          <h3 className="ml-auto text-lg text-zinc-700">
+            {!data && 'Courses'}
             {data && 'Courses in ' + data.college.name}
-          </h3>
+          </h1>
         </div>
       </div>
       <div className="mt-14"></div>
