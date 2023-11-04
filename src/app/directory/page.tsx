@@ -5,6 +5,7 @@ import { PageWrapper } from '@/components/PageWrapper';
 import { College, Course } from '@/lib/types';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import Link from 'next/link';
 import { Search } from './components/Search';
 
 interface ApiResponse {
@@ -34,9 +35,11 @@ const DirectoryPage = () => {
           </h1>
           <div className="ml-auto">
             {data?.college.name == 'Public View' && (
-              <button className="rounded-md bg-primary-500 px-3 py-2 text-sm text-white shadow-sm transition delay-200 duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-purple-500/90 active:scale-95">
-                JOIN COLLEGE
-              </button>
+              <Link href={'/join'}>
+                <button className="rounded-md bg-primary-500 px-3 py-2 text-sm text-white shadow-sm transition delay-200 duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-purple-500/90 active:scale-95">
+                  JOIN COLLEGE
+                </button>
+              </Link>
             )}
           </div>
         </div>

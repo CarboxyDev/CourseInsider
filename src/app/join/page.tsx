@@ -2,9 +2,11 @@
 
 import { LoadingSpinner } from '@/components/Loading';
 import { PageWrapper } from '@/components/PageWrapper';
+import { notify } from '@/lib/notify';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { redirect, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useState } from 'react';
 
 type ApiResponse = {
   invalid: boolean;
@@ -24,7 +26,7 @@ const JoinRequest = (props: { code: string }): JSX.Element => {
 
   if (status == 'pending') {
     return (
-      <div className="mt-20 md:mt-48">
+      <div className="mt-10">
         <div className="flex justify-center">
           <LoadingSpinner size={64} />
         </div>
@@ -33,8 +35,9 @@ const JoinRequest = (props: { code: string }): JSX.Element => {
   }
 
   if (status == 'error') {
+    notify(error.message, 'failure');
     return (
-      <div className="mt-20 md:mt-48">
+      <div className="mt-10">
         <div className="flex justify-center">
           <p className="text-2xl text-red-500">An error occured</p>
         </div>
@@ -44,7 +47,7 @@ const JoinRequest = (props: { code: string }): JSX.Element => {
 
   if (status == 'success' && data.invalid) {
     return (
-      <div className="mt-20 md:mt-48">
+      <div className="mt-10">
         <div className="flex justify-center">
           <p className="text-2xl text-danger-500">Invalid join code</p>
         </div>
@@ -54,10 +57,10 @@ const JoinRequest = (props: { code: string }): JSX.Element => {
 
   if (status == 'success' && !data.invalid) {
     return (
-      <div className="mt-20 md:mt-48">
+      <div className="mt-10">
         <div className="flex justify-center">
-          <p className="text-4xl text-zinc-700 font-semibold">
-            Joined {data.name}
+          <p className="text-5xl magic-text font-semibold">
+            Joined {data.name} !
           </p>
         </div>
       </div>
@@ -69,16 +72,41 @@ const JoinRequest = (props: { code: string }): JSX.Element => {
 
 export default function JoinPage() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const code = searchParams.get('code') ?? 'invalid';
 
-  if (code === 'invalid') {
-    redirect('/');
-  }
+  const [input, setInput] = useState('');
+
+  const handleJoin = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    router.push(`/join?code=${input}`);
+  };
 
   return (
     <PageWrapper>
+      <div className="mt-14">
+        <h1 className="text-3xl md:text-4xl font-semibold text-zinc-600 mr-6">
+          Join your college
+        </h1>
+      </div>
       <div className="mt-20 md:mt-48">
-        <JoinRequest code={code} />
+        {code === 'invalid' && (
+          <div className="flex flex-row items-center gap-x-4 justify-center">
+            <input
+              type="text"
+              className="h-12 w-40 md:w-64 lg:w-80 px-4 text-lg placeholder:text-zinc-500 appearance-none focus:outlin-primary-500 placeholder:font-light text-zinc-600 border border-zinc-300 bg-zinc-100 rounded-md"
+              placeholder="College code"
+              onChange={(e) => setInput(e.target.value)}
+            />
+            <button
+              onClick={(e) => handleJoin(e)}
+              className="rounded-md h-12 w-32 text-lg font-medium text-white bg-primary-400"
+            >
+              JOIN
+            </button>
+          </div>
+        )}
+        {code != 'invalid' && <JoinRequest code={code} />}
       </div>
     </PageWrapper>
   );

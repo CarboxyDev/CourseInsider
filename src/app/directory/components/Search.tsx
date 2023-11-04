@@ -31,7 +31,7 @@ export const Search = (props: SearchProps) => {
       <Combobox
         as="div"
         onChange={() => router.push('/')}
-        className=" h-fit w-180 rounded-lg border border-zinc-300 bg-zinc-50"
+        className=" h-fit w-180 rounded-lg border border-zinc-300 bg-zinc-100"
       >
         <div className="flex items-center px-4">
           <IconifyIcon
@@ -40,7 +40,7 @@ export const Search = (props: SearchProps) => {
           />
           <Combobox.Input
             onChange={(e) => setQuery(e.target.value)}
-            className="h-12 w-full bg-zinc-50 text-zinc-600 outline-none placeholder:text-zinc-500 text-base"
+            className="h-12 w-full bg-zinc-100 text-zinc-600 outline-none placeholder:text-zinc-500 text-base"
             placeholder="Search for courses"
           />
         </div>
