@@ -5,16 +5,32 @@ import { PageWrapper } from '@/components/PageWrapper';
 import { notify } from '@/lib/notify';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type ApiResponse = {
   invalid: boolean;
   name?: string;
 };
 
-const JoinRequest = (props: { code: string }): JSX.Element => {
-  const { code } = props;
+const JoinRequest = (props: {
+  code: string;
+  router: AppRouterInstance;
+}): JSX.Element => {
+  const { code, router } = props;
+  const [redirect, setRedirect] = useState(false);
+  const [exhaust, setExhausted] = useState(false);
+
+  useEffect(() => {
+    if (redirect) {
+      setRedirect(false);
+      notify('Redirecting...', 'success');
+      setTimeout(() => {
+        router.push('/directory');
+      }, 1500);
+    }
+  }, [redirect, router]);
 
   const { data, error, status } = useQuery({
     queryKey: ['join'],
@@ -55,7 +71,9 @@ const JoinRequest = (props: { code: string }): JSX.Element => {
     );
   }
 
-  if (status == 'success' && !data.invalid) {
+  if (status == 'success' && !data.invalid && !exhaust) {
+    setRedirect(true);
+    setExhausted(true);
     return (
       <div className="mt-10">
         <div className="flex justify-center">
@@ -111,7 +129,7 @@ export default function JoinPage() {
             </div>
           </>
         )}
-        {code != 'invalid' && <JoinRequest code={code} />}
+        {code != 'invalid' && <JoinRequest code={code} router={router} />}
       </div>
     </PageWrapper>
   );
