@@ -1,3 +1,4 @@
+import { Badge } from '@/components/Badge';
 import { PageWrapper } from '@/components/PageWrapper';
 import { mockCourses } from '@/lib/mockup';
 import { notFound } from 'next/navigation';
@@ -23,7 +24,26 @@ export default function page(props: PageProps) {
     <PageWrapper>
       <div className="mt-14">
         <div className="flex flex-row">
-          <div className="mr-auto"></div>
+          <div className="mr-auto flex flex-row items-center">
+            <h1 className="text-3xl font-semibold text-zinc-600 mr-6">
+              {course.name}
+            </h1>
+            <Badge
+              text={course.code}
+              size={'lg'}
+              color={'neutral'}
+              emphasizeText={true}
+            />
+            <div className="w-2"></div>
+            {course.availableSeats > 5 && (
+              <Badge
+                text="Seats left"
+                size={'lg'}
+                color={'success'}
+                emphasizeText={true}
+              />
+            )}
+          </div>
           <div className="ml-auto"></div>
         </div>
       </div>

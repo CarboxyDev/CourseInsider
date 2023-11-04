@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         primary: colors.sky,
-        success: colors.green,
+        success: colors.emerald,
         danger: colors.red,
         warning: colors.amber,
       },
