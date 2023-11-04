@@ -56,6 +56,13 @@ export const GradingTable = (props: GradingTableProps) => {
   }
 
   if (status == 'success') {
+    if (!data.data) {
+      return (
+        <div className="flex justify-center text-zinc-700 text-2xl font-semibold">
+          No Grading structure provided
+        </div>
+      );
+    }
     const grading = JSON.parse(data.data) as GradingComponent[];
 
     if (grading.length == 0) {

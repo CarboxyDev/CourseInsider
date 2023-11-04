@@ -39,6 +39,17 @@ const Reviews = (props: ReviewsProps) => {
     );
   }
   if (status == 'success') {
+    if (data.length === 0) {
+      return (
+        <div>
+          <div className="text-2xl font-semibold text-zinc-600 flex justify-center">
+            No reviews yet. Be the first one to review!
+          </div>
+          <Comment />
+        </div>
+      );
+    }
+
     return (
       <div>
         {data.map((review: Review) => {
