@@ -15,19 +15,19 @@ const ExplanationCard = (props: ExplanationCardProps) => {
     <>
       <div
         className={cn(
-          'w-80 rounded-xl border border-zinc-200 bg-zinc-50 shadow-md transition duration-500 ease-in-out hover:scale-105 hover:border-zinc-300 md:w-72 xl:w-90 2xl:w-80',
+          'w-80 rounded-xl border border-zinc-200 shadow-md transition duration-500 ease-in-out hover:scale-105 hover:border-zinc-300 md:w-72 xl:w-90 2xl:w-80',
           order === 4 && 'md:row-start-2 xl:row-auto'
         )}
       >
         <div className="flex flex-col p-8">
           <div
             className={cn(
-              'flex h-16 w-16 items-center justify-center rounded-full bg-primary-300'
+              'flex h-16 w-16 items-center justify-center rounded-full bg-primary-200'
             )}
           >
             <IconifyIcon
               icon={iconName}
-              className={cn('h-8 w-8 text-primary-700')}
+              className={cn('h-8 w-8 text-primary-600')}
             />
           </div>
           <div className="mt-10">

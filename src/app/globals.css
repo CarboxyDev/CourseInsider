@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --sky-400: #38bdf8;
+  --indigo-400: #818cf8;
+  --indigo-400: #a78bfa;
+  --purple-400: #c084fc;
+}
+
 * {
   box-sizing: border-box;
 }
