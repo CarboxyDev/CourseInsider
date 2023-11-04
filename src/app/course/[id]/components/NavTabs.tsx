@@ -1,5 +1,6 @@
 'use client';
 import Reviews from '@/app/course/[id]/components/Reviews';
+import { Course } from '@/lib/types';
 import * as Tabs from '@radix-ui/react-tabs';
 import { GradingTable } from './GradingTable';
 import { WeeklyPlanTable } from './WeeklyPlanTable';
@@ -20,7 +21,12 @@ const TabOption = (props: TabOptionProps) => {
   );
 };
 
-const NavTabs = () => {
+interface NavTabsProps {
+  course: Course;
+}
+const NavTabs = (props: NavTabsProps) => {
+  const { course } = props;
+
   return (
     <Tabs.Root defaultValue="reviews">
       <Tabs.List className="bg-zinc-100 px-2 py-2 border border-zinc-200 rounded-md mb-18 flex flex-row gap-x-8">
@@ -30,7 +36,7 @@ const NavTabs = () => {
         <TabOption value="weekly-plan" label="Weekly plan" />
       </Tabs.List>
       <Tabs.Content value="reviews">
-        <Reviews />
+        <Reviews courseId={course.id} />
       </Tabs.Content>
       <Tabs.Content value="grading">
         <GradingTable

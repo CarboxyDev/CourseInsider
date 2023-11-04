@@ -15,3 +15,13 @@ export interface Course {
   rating: number;
   ratingCount: number;
 }
+
+export interface Review {
+  id: string;
+  rating: number;
+  comment: string;
+  courseId: string;
+  userId: string;
+  authorName: string;
+  reviewedOn: Date;
+}

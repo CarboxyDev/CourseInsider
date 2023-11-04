@@ -3,7 +3,18 @@ import { MockReviews } from '@/lib/mockup';
 import { getShortDate } from '@/lib/util';
 import Image from 'next/image';
 
-const Reviews = () => {
+interface ReviewsProps {
+  courseId: string;
+}
+
+const Reviews = (props: ReviewsProps) => {
+  const { courseId } = props;
+  // const reviews = await prisma.review.findMany({
+  //   where: {
+  //     courseId,
+  //   },
+  // });
+
   return (
     <div>
       {MockReviews.map((review) => {
@@ -17,7 +28,7 @@ const Reviews = () => {
                 height={40}
                 width={40}
                 src={`https://api.dicebear.com/7.x/adventurer/png?seed=${
-                  review.id + review.author + review.comment.length
+                  review.id + review.authorName + review.comment.length
                 }`}
                 className="rounded-full w-10 h-10 border border-zinc-200"
                 alt="avatar"
@@ -27,7 +38,7 @@ const Reviews = () => {
               <div className="flex flex-row">
                 <div className="mr-auto">
                   <span className="text-zinc-600 font-medium block">
-                    {review.author}
+                    {review.authorName}
                   </span>
                   <span className="text-zinc-400 font-light">
                     {getShortDate(review.reviewedOn)}

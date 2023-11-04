@@ -8,7 +8,6 @@ datasource db {
   relationMode = "prisma"
 }
 
-
 model Account {
   id                String  @id @default(cuid())
   userId            String
@@ -59,20 +58,30 @@ model VerificationToken {
 }
 
 model Course {
-  id          String      @id @default(cuid())
+  id          String   @id @default(cuid())
   name        String
   description String
   code        String
   credits     Int
   stream      String
-  prereqs     String[]    @default(["None"])
-  professor   String      @default("To be announced")
+  prereqs     String[] @default(["None"])
+  professor   String   @default("To be announced")
   duration    Int
   timing      String
   semester    String
   seats       Int
-  openSeats   Int         
-  rating      Float       @default(0)
-  ratingCount Int         @default(0)
-  createdAt   DateTime    @default(now())
+  openSeats   Int
+  rating      Float    @default(0)
+  ratingCount Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model Review {
+  id       String @id @default(cuid())
+  rating   Float
+  comment  String
+  courseId String
+  userId   String
+  authorName String
+  reviewedOn DateTime @default(now())
 }

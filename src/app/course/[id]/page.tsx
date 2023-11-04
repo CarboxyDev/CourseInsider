@@ -35,7 +35,7 @@ export default async function page(props: PageProps) {
         <CourseInformation course={sanitizeCourse} />
       </div>
       <div className="mt-25">
-        <NavTabs />
+        <NavTabs course={sanitizeCourse} />
       </div>
     </PageWrapper>
   );
