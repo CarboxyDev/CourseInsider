@@ -1,7 +1,7 @@
 import CourseInformation from '@/app/course/[id]/components/Information';
 import NavTabs from '@/app/course/[id]/components/NavTabs';
 import { PageWrapper } from '@/components/PageWrapper';
-import { mockCourses } from '@/lib/mockup';
+import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 
 interface PageParams {
@@ -12,19 +12,27 @@ interface PageProps {
   params: PageParams;
 }
 
-export default function page(props: PageProps) {
-  //const id = props.params.id;
-  const id = 'computer-networks-cs451-12f5l';
-  const course = mockCourses.find((course) => course.id === id);
+export default async function page(props: PageProps) {
+  const id = props.params.id;
+
+  const course = await prisma.course.findUnique({
+    where: {
+      id: id,
+    },
+  });
 
   if (!course) {
     return notFound();
   }
 
+  const sanitizeCourse = {
+    ...course,
+  };
+
   return (
     <PageWrapper>
       <div className="mt-14">
-        <CourseInformation course={course} />
+        <CourseInformation course={sanitizeCourse} />
       </div>
       <div className="mt-25">
         <NavTabs />

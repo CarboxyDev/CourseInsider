@@ -65,7 +65,7 @@ model Course {
   code        String
   credits     Int
   stream      String
-  prereqs     String
+  prereqs     String[]    @default(["None"])
   professor   String      @default("To be announced")
   duration    Int
   timing      String

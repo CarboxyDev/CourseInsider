@@ -23,7 +23,7 @@ const CourseInformation = (props: CourseInformationProps) => {
             emphasizeText={true}
           />
           <div className="w-2"></div>
-          {course.availableSeats > 5 && (
+          {course.openSeats > 5 && (
             <Badge
               text="Seats left"
               size={'lg'}
@@ -67,10 +67,9 @@ const CoreInformation = (props: CourseInformationProps) => {
         <div>
           <h3 className="font-medium inline">Prerequisites: </h3>
           <span className="text-zinc-600 font-light">
-            {course.prerequisites.map((prerequisite, index) => {
+            {course.prereqs.map((prerequisite, index) => {
               return (
-                prerequisite +
-                (index != course.prerequisites.length - 1 ? ', ' : '')
+                prerequisite + (index != course.prereqs.length - 1 ? ', ' : '')
               );
             })}
           </span>
@@ -101,7 +100,7 @@ const CoreInformation = (props: CourseInformationProps) => {
         <div className="mt-3">
           <h3 className="font-medium inline">Duration: </h3>
           <span className="text-zinc-600 font-light">
-            {course.durationInWeeks} weeks
+            {course.duration} weeks
           </span>
         </div>
       </div>

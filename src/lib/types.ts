@@ -5,13 +5,13 @@ export interface Course {
   stream: string;
   description: string;
   credits: number;
-  prerequisites: string[];
+  prereqs: string[];
   professor: string;
-  durationInWeeks: number;
+  duration: number /* In weeks */;
   timing: string;
   semester: string;
-  totalSeats: number;
-  availableSeats: number;
+  seats: number;
+  openSeats: number;
   rating: number;
-  ratedByCount: number;
+  ratingCount: number;
 }
