@@ -33,7 +33,7 @@ const Navbar = (props: NavbarProps) => {
         )}
         <div className="ml-auto flex h-10 w-10 items-center justify-center rounded-full bg-zinc-500 hover:cursor-pointer"></div>
       </div>
-      {drawDivider && <div className="mt-4 h-px bg-zinc-200 md:mt-6"></div>}
+      {drawDivider && <div className="mt-4 h-px bg-zinc-100 md:mt-6"></div>}
     </>
   );
 };

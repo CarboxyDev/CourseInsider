@@ -35,8 +35,8 @@ const CourseInformation = (props: CourseInformationProps) => {
       </div>
       <div className="mt-18">
         <div>
-          <h2 className="text-zinc-700 font-semibold text-lg">Description</h2>
-          <p className="pt-3 text-base leading-7 font-light text-zinc-600">
+          <h2 className="text-zinc-700 font-semibold">Description</h2>
+          <p className="mt-2 text-base leading-6 font-light text-zinc-600">
             {course.description}
           </p>
         </div>
@@ -52,11 +52,11 @@ const CoreInformation = (props: CourseInformationProps) => {
   const course = props.course;
 
   return (
-    <div className="flex flex-row text-lg text-zinc-700">
+    <div className="flex flex-row text-zinc-700">
       <div className="mr-auto">
         <div>
           <h3 className="font-medium inline">Prerequisites: </h3>
-          <span className="text-zinc-500">
+          <span className="text-zinc-500 font-light">
             {course.prerequisites.map((prerequisite, index) => {
               return (
                 prerequisite +
@@ -68,29 +68,31 @@ const CoreInformation = (props: CourseInformationProps) => {
 
         <div className="mt-3">
           <h3 className="font-medium inline">Professor: </h3>
-          <span className="text-zinc-500">{course.professor}</span>
+          <span className="text-zinc-600 font-light">{course.professor}</span>
         </div>
 
         <div className="mt-3">
           <h3 className="font-medium inline">Credits: </h3>
-          <span className="text-zinc-500">{course.credits}</span>
+          <span className="text-zinc-600 font-light">{course.credits}</span>
         </div>
       </div>
 
       <div className="ml-auto">
         <div>
           <h3 className="font-medium inline">Timing: </h3>
-          <span className="text-zinc-500">{course.timing}</span>
+          <span className="text-zinc-600 font-light">{course.timing}</span>
         </div>
 
         <div className="mt-3">
           <h3 className="font-medium inline">Semester: </h3>
-          <span className="text-zinc-500">{course.semester}</span>
+          <span className="text-zinc-600 font-light">{course.semester}</span>
         </div>
 
         <div className="mt-3">
           <h3 className="font-medium inline">Duration: </h3>
-          <span className="text-zinc-500">{course.durationInWeeks} weeks</span>
+          <span className="text-zinc-600 font-light">
+            {course.durationInWeeks} weeks
+          </span>
         </div>
       </div>
     </div>
