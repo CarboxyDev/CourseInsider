@@ -14,7 +14,7 @@ interface ReviewsProps {
 const Reviews = (props: ReviewsProps) => {
   const { courseId } = props;
 
-  const { data, error, status } = useQuery({
+  const { data, error, status, refetch } = useQuery({
     queryKey: ['reviews'],
     queryFn: async () => {
       const { data } = await axios.get(
@@ -42,10 +42,10 @@ const Reviews = (props: ReviewsProps) => {
     if (data.length === 0) {
       return (
         <div>
-          <div className="text-2xl font-semibold text-zinc-600 flex justify-center">
+          <div className="text-2xl mb-32 font-semibold text-zinc-600 flex justify-center">
             No reviews yet. Be the first one to review!
           </div>
-          <Comment courseId={courseId} />
+          <Comment courseId={courseId} refetchFn={refetch} />
         </div>
       );
     }
@@ -98,7 +98,7 @@ const Reviews = (props: ReviewsProps) => {
           );
         })}
         <div className="mt-32">
-          <Comment courseId={courseId} />
+          <Comment courseId={courseId} refetchFn={refetch} />
         </div>
       </div>
     );

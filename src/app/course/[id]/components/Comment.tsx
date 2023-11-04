@@ -2,16 +2,23 @@ import { Textarea } from '@/components/otherui/Textarea';
 import { StarRating } from '@/components/StarRating';
 import { getErrorMessage } from '@/lib/api';
 import { notify, notifyPromise } from '@/lib/notify';
-import { useMutation } from '@tanstack/react-query';
+import {
+  QueryObserverResult,
+  RefetchOptions,
+  useMutation,
+} from '@tanstack/react-query';
 import axios from 'axios';
 import { useState } from 'react';
 
 interface CommentProps {
   courseId: string;
+  refetchFn: (
+    options?: RefetchOptions | undefined
+  ) => Promise<QueryObserverResult<any, Error>>;
 }
 
 export const Comment = (props: CommentProps) => {
-  const { courseId } = props;
+  const { courseId, refetchFn } = props;
 
   const [rating, setRating] = useState(0);
   const [content, setContent] = useState('');
@@ -48,6 +55,7 @@ export const Comment = (props: CommentProps) => {
     onSuccess: () => {
       console.log('Successfully posted review');
       setContent('');
+      refetchFn();
     },
   });
 
