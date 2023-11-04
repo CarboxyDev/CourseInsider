@@ -72,7 +72,7 @@ model Course {
   code        String
   credits     Int
   stream      String
-  prereqs     String[] @default(["None"])
+  prereqs     String   @default("[]") @db.VarChar(500)
   professor   String   @default("To be announced")
   duration    Int
   timing      String
@@ -85,14 +85,14 @@ model Course {
 }
 
 model Review {
-  id         String   @id @default(dbgenerated("uuid_generate_v1()")) @db.Text
-  rating     Float
-  comment    String
-  courseId   String
-  userId     String
-  authorName String
+  id           String   @id @default(dbgenerated("uuid_generate_v1()")) @db.Text
+  rating       Float
+  comment      String
+  courseId     String
+  userId       String
+  authorName   String
   authorAvatar String?
-  reviewedOn DateTime @default(now())
+  reviewedOn   DateTime @default(now())
 }
 
 model GradingStructure {

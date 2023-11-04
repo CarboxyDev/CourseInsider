@@ -2,6 +2,7 @@ import CourseInformation from '@/app/course/[id]/components/Information';
 import NavTabs from '@/app/course/[id]/components/NavTabs';
 import { PageWrapper } from '@/components/PageWrapper';
 import { prisma } from '@/lib/prisma';
+import { Course } from '@/lib/types';
 import { notFound } from 'next/navigation';
 
 interface PageParams {
@@ -25,9 +26,21 @@ export default async function page(props: PageProps) {
     return notFound();
   }
 
-  const sanitizeCourse = {
-    ...course,
-  };
+  let sanitizeCourse: Course;
+
+  try {
+    /** The parsing will fail in case of bad data, handled it below */
+    sanitizeCourse = {
+      ...course,
+      prereqs: JSON.parse(course.prereqs),
+    };
+  } catch (error) {
+    console.log(error);
+    sanitizeCourse = {
+      ...course,
+      prereqs: [],
+    };
+  }
 
   return (
     <PageWrapper>

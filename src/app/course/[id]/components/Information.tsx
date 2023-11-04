@@ -1,6 +1,7 @@
 import { Badge } from '@/components/Badge';
 import { StarRating } from '@/components/StarRating';
 import { Course } from '@/lib/types';
+import Link from 'next/link';
 
 interface CourseInformationProps {
   course: Course;
@@ -8,6 +9,7 @@ interface CourseInformationProps {
 
 const CourseInformation = (props: CourseInformationProps) => {
   const course = props.course;
+  const prereqs = course.prereqs;
 
   return (
     <>
@@ -84,11 +86,19 @@ const CoreInformation = (props: CourseInformationProps) => {
         <div>
           <h3 className="font-medium inline">Prerequisites: </h3>
           <span className="text-zinc-600 font-light">
-            {course.prereqs.map((prerequisite, index) => {
-              return (
-                prerequisite + (index != course.prereqs.length - 1 ? ', ' : '')
+            {course.prereqs.map((p, index) => {
+              const { id, name } = p;
+              return id.length > 1 ? (
+                <Link href={id} className="underline hover:text-primary-500">
+                  {name}
+                </Link>
+              ) : (
+                { name } + (index != course.prereqs.length - 1 ? ', ' : '')
               );
             })}
+            {course.prereqs.length == 0 && (
+              <span className="text-zinc-600 font-light">None</span>
+            )}
           </span>
         </div>
 

@@ -5,7 +5,10 @@ export interface Course {
   stream: string;
   description: string;
   credits: number;
-  prereqs: string[];
+  prereqs: {
+    id: string;
+    name: string;
+  }[];
   professor: string;
   duration: number /* In weeks */;
   timing: string;
