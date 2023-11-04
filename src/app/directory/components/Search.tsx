@@ -65,15 +65,17 @@ export const Search = (props: SearchProps) => {
           No courses available {':('}
         </div>
       )}
-      {query.length === 0 &&
-        !resultsDisabled &&
-        courses.map((course, i) => {
-          return (
-            <div className="mt-9" key={i}>
-              <CourseCard key={i} course={course} />
-            </div>
-          );
-        })}
+      <div className="divide-y-[1px] divide-zinc-200">
+        {query.length === 0 &&
+          !resultsDisabled &&
+          courses.map((course, i) => {
+            return (
+              <div className="mt-9" key={i}>
+                <CourseCard key={i} course={course} />
+              </div>
+            );
+          })}
+      </div>
       {query && filteredOptions.length === 0 && !resultsDisabled && (
         <p className="py-6 text-center text-zinc-600">No results found</p>
       )}
