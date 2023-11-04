@@ -6,10 +6,10 @@ interface LoadingSpinnerProps {
 
 export const LoadingSpinner = (props: LoadingSpinnerProps) => {
   const size = props.size ? props.size : 48;
-  return <ClipLoader color="#8b5cf6" size={size} />;
+  return <ClipLoader color="#0ea5e9" size={size} />;
 };
 
 export const LoadingPropagateSpinner = (props: LoadingSpinnerProps) => {
   const size = props.size ? props.size : 48;
-  return <PropagateLoader color="#8b5cf6" size={size} />;
+  return <PropagateLoader color="#0ea5e9" size={size} />;
 };
