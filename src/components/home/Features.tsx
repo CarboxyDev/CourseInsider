@@ -32,7 +32,7 @@ const ExplanationCard = (props: ExplanationCardProps) => {
           </div>
           <div className="mt-10">
             <h4 className="text-xl font-medium text-zinc-700">{title}</h4>
-            <p className="mt-3 text-base leading-7 text-zinc-700">{content}</p>
+            <p className="mt-3 text-base leading-7 text-zinc-500">{content}</p>
           </div>
         </div>
       </div>
