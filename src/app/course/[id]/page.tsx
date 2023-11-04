@@ -1,3 +1,4 @@
+import { PageWrapper } from '@/components/PageWrapper';
 import { mockCourses } from '@/lib/mockup';
 import { notFound } from 'next/navigation';
 
@@ -18,5 +19,14 @@ export default function page(props: PageProps) {
     return notFound();
   }
 
-  return <div>{course.name}</div>;
+  return (
+    <PageWrapper>
+      <div className="mt-14">
+        <div className="flex flex-row">
+          <div className="mr-auto"></div>
+          <div className="ml-auto"></div>
+        </div>
+      </div>
+    </PageWrapper>
+  );
 }
