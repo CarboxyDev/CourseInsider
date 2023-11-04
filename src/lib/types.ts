@@ -7,7 +7,7 @@ export interface Course {
   credits: number;
   prerequisites: string[];
   professor: string;
-  duration: number /* in weeks */;
+  durationInWeeks: number;
   timing: string;
   semester: string;
   totalSeats: number;

@@ -11,7 +11,7 @@ export const mockCourses: Course[] = [
     credits: 4,
     prerequisites: ['IP', 'DSA'],
     professor: 'Dr. Vijay Kumar',
-    duration: 15,
+    durationInWeeks: 15,
     timing: '10:00 - 11:30 AM (Mon, Fri)',
     semester: 'Winter',
     totalSeats: 340,
