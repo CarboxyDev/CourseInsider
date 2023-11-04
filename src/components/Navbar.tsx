@@ -3,6 +3,7 @@
 import { Badge } from '@/components/Badge';
 import IconifyIcon from '@/components/IconifyIcon';
 import { LoadingSpinner } from '@/components/Loading';
+import { Logo } from '@/components/Logo';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { Session } from 'next-auth';
 import { signIn, signOut, useSession } from 'next-auth/react';
@@ -95,15 +96,13 @@ const Navbar = (props: NavbarProps) => {
       <div className="mt-4 flex w-full select-none flex-row items-center">
         {variant === 'with-branding' && (
           <Link href="/">
-            <span className="mr-3 inline text-lg font-medium text-sky-500">
-              CourseInsider
-            </span>
-            <Badge text="BETA" size="lg" color="primary" />
+            <Logo className="mr-4 inline" hoverAnimation={true} />
+            <Badge text="ALPHA" size="lg" color="primary" />
           </Link>
         )}
         {variant === 'with-minimal-branding' && (
           <Link href="/">
-            <Badge text="BETA" size="lg" color="primary" />
+            <Badge text="ALPHA" size="lg" color="primary" />
           </Link>
         )}
         <div className="ml-auto flex h-10 w-10 items-center justify-center rounded-full bg-transparent border border-zinc-300 hover:cursor-pointer">
