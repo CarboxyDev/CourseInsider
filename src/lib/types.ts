@@ -25,3 +25,8 @@ export interface Review {
   authorName: string;
   reviewedOn: Date;
 }
+
+export interface College {
+  id: string;
+  name: string;
+}

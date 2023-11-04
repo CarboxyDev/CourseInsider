@@ -1,22 +1,14 @@
 'use client';
 
 import IconifyIcon from '@/components/IconifyIcon';
+import { Course } from '@/lib/types';
 import { Combobox } from '@headlessui/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { CourseCard } from './CourseCard';
 
-interface CourseCardProps {
-  name: string;
-  description: string;
-  rating: number;
-  code: string;
-  seats: number;
-  link: string;
-}
-
 interface SearchProps {
-  courses: CourseCardProps[];
+  courses: Course[];
 }
 
 export const Search = (props: SearchProps) => {
@@ -46,7 +38,7 @@ export const Search = (props: SearchProps) => {
           <Combobox.Input
             onChange={(e) => setQuery(e.target.value)}
             className="h-12 w-full bg-zinc-100 text-zinc-600 outline-none placeholder:text-zinc-500 text-base font-medium"
-            placeholder="Search for collections"
+            placeholder="Search for courses"
           />
         </div>
       </Combobox>
@@ -54,17 +46,20 @@ export const Search = (props: SearchProps) => {
       <div className="divide-y-[1px] divide-zinc-200">
         {query.length > 0 &&
           filteredOptions &&
-          filteredOptions.map(
-            (option, i) =>
-              option.name.toLowerCase().includes(query.toLowerCase()) && (
-                <div className="mt-9" key={i}>
-                  <CourseCard key={i} {...option} />
-                </div>
-              )
-          )}
+          filteredOptions.map((option, i) => {
+            const course = courses.find((course) => course.id === option.id);
+            if (!course) {
+              return <></>;
+            }
+            return (
+              <div className="mt-9" key={i}>
+                <CourseCard key={i} course={course} />
+              </div>
+            );
+          })}
       </div>
       {query.length === 0 && filteredOptions.length === 0 && (
-        <p className="py-6 text-center text-zinc-600">Default Results</p>
+        <p className="py-6 text-center text-zinc-600"></p>
       )}
       {query && filteredOptions.length === 0 && (
         <p className="py-6 text-center text-zinc-600">No results found</p>

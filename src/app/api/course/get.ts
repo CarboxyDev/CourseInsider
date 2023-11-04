@@ -1,5 +1,8 @@
+import { authOptions } from '@/app/api/auth/[...nextauth]/authOptions';
 import { SendResponse } from '@/lib/api';
+import { getUserFromSession } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
+import { getServerSession } from 'next-auth';
 
 export async function GET_COURSE(req: Request, res: Response) {
   const { searchParams } = new URL(req.url);
@@ -48,6 +51,37 @@ export async function GET_COURSE(req: Request, res: Response) {
       return SendResponse(JSON.stringify(gradingStructure), 200);
     } catch (error) {
       return SendResponse('An error occured on the server', 500);
+    }
+  }
+
+  if (query == 'fetch-courses') {
+    const session = await getServerSession(authOptions);
+    const getUser = await getUserFromSession(session);
+    const user = getUser.user;
+
+    if (!user) {
+      return getUser.errorResponse;
+    }
+
+    try {
+      const courses = await prisma.course.findMany({
+        where: {
+          collegeId: user.collegeId,
+        },
+      });
+
+      const college = await prisma.college.findFirst({
+        where: {
+          id: user.collegeId,
+        },
+      });
+
+      return SendResponse(
+        JSON.stringify({ college: college, courses: courses }),
+        200
+      );
+    } catch {
+      return SendResponse('Unable to fetch your couses', 500);
     }
   }
 

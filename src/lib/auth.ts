@@ -13,6 +13,7 @@ interface GetUserFromSessionReturn {
     name?: string | null;
     email?: string | null;
     image?: string | null;
+    collegeId?: string;
   } | null;
   errorResponse: Response; // This should only be used when there's an error in user login flow
 }
@@ -51,12 +52,14 @@ export const getUserFromSession = async (
   }
 
   const userId = prismaUser.id;
+  const collegeId = prismaUser.collegeId;
   return {
     user: {
       id: userId,
       name: user.name,
       email: user.email,
       image: user.image,
+      collegeId: collegeId,
     },
     errorResponse: SendResponse('OK', 200),
   };
