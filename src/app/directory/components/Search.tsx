@@ -19,8 +19,10 @@ export const Search = (props: SearchProps) => {
   const router = useRouter();
 
   const filteredOptions = query
-    ? courses.filter((course) =>
-        course.name.toLowerCase().includes(query.toLowerCase())
+    ? courses.filter(
+        (course) =>
+          course.name.toLowerCase().includes(query.toLowerCase()) ||
+          course.code.toLowerCase().includes(query.toLowerCase())
       )
     : [];
 
