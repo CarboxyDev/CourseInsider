@@ -53,21 +53,21 @@ const WorkingExplanationGrid = () => {
     {
       order: 2,
       title: 'Ratings & Reviews',
-      iconName: 'mdi:clock-outline',
+      iconName: 'tabler:star',
       content:
         'Access course ratings and reviews to make informed decisions on course selection.',
     },
     {
       order: 3,
       title: 'Course Status',
-      iconName: 'ic:outline-loop',
+      iconName: 'pajamas:status',
       content:
         'Check course availability and seat status. Secure your spot in your desired courses.',
     },
     {
       order: 4,
       title: 'Grading Scheme',
-      iconName: 'mingcute:save-line',
+      iconName: 'icon-park-outline:list-two',
       content:
         'Explore Ttransparent grading schemes for each course. Understand grading criteria and excel in your studies.',
     },
