@@ -28,7 +28,7 @@ const ProfileDropdownMenu = (props: ProfileDropdownMenuProps) => {
         <Link href={'/directory'}>
           <DropdownMenu.Item className="flex flex-row items-center gap-x-2 rounded-t-lg pb-3 pl-3 pt-4 transition duration-300 ease-in-out hover:cursor-pointer hover:bg-zinc-300 hover:outline-none">
             <IconifyIcon
-              icon="ic:round-timer"
+              icon="fluent:hat-graduation-16-filled"
               className="h-5 w-5 text-zinc-600"
             />
             <div className="text-zinc-700">Courses</div>
@@ -37,7 +37,7 @@ const ProfileDropdownMenu = (props: ProfileDropdownMenuProps) => {
         <Link href={'/profile'}>
           <DropdownMenu.Item className="flex flex-row items-center gap-x-2 py-3 pl-3 transition duration-300 ease-in-out hover:cursor-pointer hover:bg-zinc-300 hover:outline-none">
             <IconifyIcon
-              icon="ic:round-task"
+              icon="ri:profile-fill"
               className="h-5 w-5 text-zinc-600"
             />
             <div className="text-zinc-600">Profile</div>
