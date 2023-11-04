@@ -28,12 +28,30 @@ export const CourseCard = (props: CourseCardProps) => {
               color={'neutral'}
               emphasizeText={true}
             />
-            <Badge
-              text={'Seats left'}
-              size={'lg'}
-              color={'success'}
-              emphasizeText={true}
-            />
+            {course.openSeats > 10 && (
+              <Badge
+                text="Seats left"
+                size={'lg'}
+                color={'success'}
+                emphasizeText={true}
+              />
+            )}
+            {course.openSeats <= 10 && course.openSeats > 0 && (
+              <Badge
+                text="Limited seats left"
+                size={'lg'}
+                color={'warning'}
+                emphasizeText={true}
+              />
+            )}
+            {course.openSeats == 0 && (
+              <Badge
+                text="No seats left"
+                size={'lg'}
+                color={'danger'}
+                emphasizeText={true}
+              />
+            )}
           </div>
         </div>
         <StarRating
