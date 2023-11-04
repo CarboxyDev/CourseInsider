@@ -56,7 +56,7 @@ export const Search = (props: SearchProps) => {
           filteredOptions &&
           filteredOptions.map(
             (option, i) =>
-              option.name.includes(query) && (
+              option.name.toLowerCase().includes(query.toLowerCase()) && (
                 <div className="mt-9" key={i}>
                   <CourseCard key={i} {...option} />
                 </div>
