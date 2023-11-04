@@ -1,4 +1,5 @@
 import CourseInformation from '@/app/course/[id]/components/Information';
+import NavTabs from '@/app/course/[id]/components/NavTabs';
 import { PageWrapper } from '@/components/PageWrapper';
 import { mockCourses } from '@/lib/mockup';
 import { notFound } from 'next/navigation';
@@ -24,6 +25,9 @@ export default function page(props: PageProps) {
     <PageWrapper>
       <div className="mt-14">
         <CourseInformation course={course} />
+      </div>
+      <div className="mt-25">
+        <NavTabs />
       </div>
     </PageWrapper>
   );
