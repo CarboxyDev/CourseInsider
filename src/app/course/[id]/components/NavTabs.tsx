@@ -1,6 +1,7 @@
 'use client';
 import Reviews from '@/app/course/[id]/components/Reviews';
 import * as Tabs from '@radix-ui/react-tabs';
+import { GradingTable } from './GradingTable';
 
 interface TabOptionProps {
   value: string;
@@ -30,7 +31,15 @@ const NavTabs = () => {
       <Tabs.Content value="reviews">
         <Reviews />
       </Tabs.Content>
-      <Tabs.Content value="grading">insert grading critera here</Tabs.Content>
+      <Tabs.Content value="grading">
+        <GradingTable
+          gradingComponents={[
+            { name: 'Midterm', weight: 30 },
+            { name: 'Final', weight: 40 },
+            { name: 'Assignments', weight: 30 },
+          ]}
+        />
+      </Tabs.Content>
       <Tabs.Content value="course-content">
         insert course content here
       </Tabs.Content>
