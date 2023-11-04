@@ -21,7 +21,7 @@ const TabOption = (props: TabOptionProps) => {
 const NavTabs = () => {
   return (
     <Tabs.Root defaultValue="reviews">
-      <Tabs.List className="bg-zinc-50 px-2 py-2 border border-zinc-200 rounded-md mb-18 flex flex-row gap-x-8">
+      <Tabs.List className="bg-zinc-100 px-2 py-2 border border-zinc-200 rounded-md mb-18 flex flex-row gap-x-8">
         <TabOption value="reviews" label="Reviews" />
         <TabOption value="grading" label="Grading" />
         <TabOption value="course-content" label="Course content" />

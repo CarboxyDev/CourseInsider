@@ -1,5 +1,6 @@
 import { StarRating } from '@/components/StarRating';
 import { MockReviews } from '@/lib/mockup';
+import { getShortDate } from '@/lib/util';
 import Image from 'next/image';
 
 const Reviews = () => {
@@ -29,7 +30,7 @@ const Reviews = () => {
                     {review.author}
                   </span>
                   <span className="text-zinc-400 font-light">
-                    {review.reviewedOn.toLocaleDateString()}
+                    {getShortDate(review.reviewedOn)}
                   </span>
                 </div>
                 <StarRating
