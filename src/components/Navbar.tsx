@@ -38,9 +38,9 @@ const ProfileDropdownMenu = (props: ProfileDropdownMenuProps) => {
           <DropdownMenu.Item className="flex flex-row items-center gap-x-2 py-3 pl-3 transition duration-300 ease-in-out hover:cursor-pointer hover:bg-zinc-300 hover:outline-none">
             <IconifyIcon
               icon="ic:round-task"
-              className="h-5 w-5 text-zinc-6s00"
+              className="h-5 w-5 text-zinc-600"
             />
-            <div className="text-zinc-700">Profile</div>
+            <div className="text-zinc-600">Profile</div>
           </DropdownMenu.Item>
         </Link>
         {userIsSignedIn && (
