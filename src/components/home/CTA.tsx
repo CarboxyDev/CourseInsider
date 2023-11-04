@@ -6,7 +6,7 @@ export const CTA = () => {
     <>
       <FullPageWidthContainer className="CTA-bg flex flex-col items-center justify-center py-20">
         <h3 className="text-zinc-50 hidden py-2 text-center text-3xl font-semibold md:block md:text-[46px]">
-          Ready to excel in your studies?
+          Ready to pick the perfect courses?
         </h3>
         <div>
           <Link href="/">
