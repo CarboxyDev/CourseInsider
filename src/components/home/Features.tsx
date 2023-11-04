@@ -69,7 +69,7 @@ const WorkingExplanationGrid = () => {
       title: 'Grading Scheme',
       iconName: 'icon-park-outline:list-two',
       content:
-        'Explore Ttransparent grading schemes for each course. Understand grading criteria and excel in your studies.',
+        'Explore transparent grading schemes for each course. Understand grading criteria and excel in your studies.',
     },
   ];
   return (
