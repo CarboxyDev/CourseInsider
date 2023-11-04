@@ -18,7 +18,9 @@ input:focus {
   outline-style: solid;
 }
 
-.star-gradient {
+.headline-gradient {
+  background: #0ea5e9;
+  background: linear-gradient(to right, #0ea5e9 0%, #6366f1 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

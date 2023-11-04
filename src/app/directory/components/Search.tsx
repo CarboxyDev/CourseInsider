@@ -28,7 +28,7 @@ export const Search = (props: SearchProps) => {
       <Combobox
         as="div"
         onChange={() => router.push('/')}
-        className=" h-fit w-180 divide-y rounded-lg border border-zinc-300 bg-zinc-100"
+        className=" h-fit w-180 rounded-lg border border-zinc-300 bg-zinc-100"
       >
         <div className="flex items-center px-4">
           <IconifyIcon
