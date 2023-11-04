@@ -24,3 +24,12 @@ input:focus {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.CTA-gradient {
+  background: rgb(56, 189, 248);
+  background: linear-gradient(
+    50deg,
+    rgba(56, 189, 248, 1) 0%,
+    rgba(127, 137, 237, 1) 100%
+  );
+}

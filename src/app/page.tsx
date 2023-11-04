@@ -1,5 +1,6 @@
 import hero from '@/../public/hero.png';
 import { PageWrapper } from '@/components/PageWrapper';
+import { CTA } from '@/components/home/CTA';
 import { FeaturesSection } from '@/components/home/Features';
 import Image from 'next/image';
 
@@ -27,6 +28,8 @@ export default function HomePage() {
         <div className="mt-40"></div>
         <FeaturesSection />
       </div>
+      <div className="mt-40"></div>
+      <CTA />
     </PageWrapper>
   );
 }
