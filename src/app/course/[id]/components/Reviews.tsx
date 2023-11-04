@@ -1,3 +1,4 @@
+import { RatingStars } from '@/components/Rating';
 import { MockReviews } from '@/lib/mockup';
 import Image from 'next/image';
 
@@ -31,7 +32,13 @@ const Reviews = () => {
                     {review.reviewedOn.toLocaleDateString()}
                   </span>
                 </div>
-                <div className="ml-auto"></div>
+                <RatingStars
+                  rating={review.rating}
+                  readonly={true}
+                  activeFillColor="#38BDF8"
+                  inactiveFillColor="#a1a1aa"
+                  className="w-6 h-6"
+                />
               </div>
               <div className="mt-4 mb-9 font-light text-zinc-600">
                 {review.comment}

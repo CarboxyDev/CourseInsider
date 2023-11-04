@@ -10,7 +10,7 @@ interface RatingProps {
   className: string;
 }
 
-const RatingStars = (props: RatingProps) => {
+export const RatingStars = (props: RatingProps) => {
   const { rating, readonly, activeFillColor, inactiveFillColor, className } =
     props;
 
@@ -28,5 +28,3 @@ const RatingStars = (props: RatingProps) => {
     />
   );
 };
-
-export default RatingStars;

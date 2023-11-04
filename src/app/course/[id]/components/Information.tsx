@@ -1,6 +1,6 @@
 import { Badge } from '@/components/Badge';
+import { RatingStars } from '@/components/Rating';
 import { Course } from '@/lib/types';
-import Rating from './Rating';
 
 interface CourseInformationProps {
   course: Course;
@@ -32,7 +32,7 @@ const CourseInformation = (props: CourseInformationProps) => {
             />
           )}
         </div>
-        <Rating
+        <RatingStars
           rating={course.rating}
           readonly={true}
           activeFillColor="#facc15"
