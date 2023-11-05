@@ -133,8 +133,18 @@ export default function JoinPage() {
                 JOIN
               </button>
             </div>
-            <div className="text-center mt-24 font-light text-sm text-zinc-400">
-              Pssst, you can join IIIT Delhi with the code b4bf48cf7955
+            <div className="text-center mt-24 font-light text-amber-400">
+              Note: You need to login before you can join a college group.{' '}
+              <span
+                onClick={() => signIn('google')}
+                className="underline hover:cursor-pointer hover:text-primary-500"
+              >
+                Login here
+              </span>
+            </div>
+            <div className="text-center mt-1 font-light text-sm text-zinc-400">
+              Pssst, by the way, you can join IIIT Delhi with the code
+              b4bf48cf7955
             </div>
           </>
         )}
