@@ -5,6 +5,7 @@ import { PageWrapper } from '@/components/PageWrapper';
 import { notify } from '@/lib/notify';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import { signIn } from 'next-auth/react';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -51,11 +52,19 @@ const JoinRequest = (props: {
   }
 
   if (status == 'error') {
-    notify(error.message, 'failure');
+    notify('You must login before joining', 'failure');
     return (
       <div className="mt-10">
         <div className="flex justify-center">
-          <p className="text-2xl text-red-500">An error occured</p>
+          <p className="text-2xl text-zinc-700">
+            An error occured.{' '}
+            <span
+              className="underline hover:cursor-pointer"
+              onClick={() => signIn('google')}
+            >
+              Login here.
+            </span>
+          </p>
         </div>
       </div>
     );
