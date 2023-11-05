@@ -91,6 +91,7 @@ const CoreInformation = (props: CourseInformationProps) => {
               return id.length > 1 ? (
                 <Link href={id} className="underline hover:text-primary-500">
                   {name}
+                  {index != course.prereqs.length - 1 ? ', ' : ''}
                 </Link>
               ) : (
                 { name } + (index != course.prereqs.length - 1 ? ', ' : '')
