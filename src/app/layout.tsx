@@ -14,7 +14,11 @@ export const metadata: Metadata = {
   keywords: ['course', 'college', 'education', 'degree'],
 };
 
-export default function RootLayout(props: { children: React.ReactNode }) {
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
+
+export default function RootLayout(props: RootLayoutProps) {
   const { children } = props;
 
   return (

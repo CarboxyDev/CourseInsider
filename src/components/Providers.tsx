@@ -5,7 +5,11 @@ import { SessionProvider } from 'next-auth/react';
 
 const queryClient = new QueryClient();
 
-const Providers = (props: React.PropsWithChildren) => {
+interface ProvidersProps {
+  children: React.ReactNode;
+}
+
+const Providers = (props: ProvidersProps) => {
   const children = props.children;
 
   return (

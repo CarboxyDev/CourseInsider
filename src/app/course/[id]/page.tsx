@@ -1,8 +1,11 @@
+import { authOptions } from '@/app/api/auth/[...nextauth]/authOptions';
 import CourseInformation from '@/app/course/[id]/components/Information';
 import NavTabs from '@/app/course/[id]/components/NavTabs';
 import { PageWrapper } from '@/components/PageWrapper';
+import { getUserFromSession } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { Course } from '@/lib/types';
+import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
 
 interface PageParams {
@@ -15,6 +18,9 @@ interface PageProps {
 
 export default async function page(props: PageProps) {
   const id = props.params.id;
+  const session = await getServerSession(authOptions);
+  const getUser = await getUserFromSession(session);
+  let user = getUser.user;
 
   const course = await prisma.course.findUnique({
     where: {
@@ -23,6 +29,17 @@ export default async function page(props: PageProps) {
   });
 
   if (!course) {
+    return notFound();
+  }
+
+  if (!user) {
+    user = {
+      collegeId: 'demo',
+      id: 'demo',
+    };
+  }
+
+  if (course.collegeId !== user.collegeId) {
     return notFound();
   }
 
