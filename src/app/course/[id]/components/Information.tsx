@@ -88,14 +88,33 @@ const CoreInformation = (props: CourseInformationProps) => {
           <span className="text-zinc-600 font-light">
             {course.prereqs.map((p, index) => {
               const { id, name } = p;
-              return id.length > 1 ? (
-                <Link href={id} className="underline hover:text-primary-500">
-                  {name}
-                  {index != course.prereqs.length - 1 ? ', ' : ''}
-                </Link>
-              ) : (
-                { name } + (index != course.prereqs.length - 1 ? ', ' : '')
-              );
+
+              if (id.length > 1) {
+                return (
+                  <span key={index}>
+                    <Link
+                      href={id}
+                      className="underline hover:text-primary-500"
+                    >
+                      {name}
+                    </Link>
+                    {index != course.prereqs.length - 1 ? ', ' : ''}
+                  </span>
+                );
+              } else {
+                return (
+                  { name } + (index != course.prereqs.length - 1 ? ', ' : '')
+                );
+              }
+
+              // return id.length > 1 ? (
+              //   <Link href={id} className="underline hover:text-primary-500">
+              //     {name}
+              //     {index != course.prereqs.length - 1 ? ', ' : ''}
+              //   </Link>
+              // ) : (
+              //   { name } + (index != course.prereqs.length - 1 ? ', ' : '')
+              // );
             })}
             {course.prereqs.length == 0 && (
               <span className="text-zinc-600 font-light">None</span>
