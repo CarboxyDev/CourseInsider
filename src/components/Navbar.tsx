@@ -2,7 +2,6 @@
 
 import { Badge } from '@/components/Badge';
 import IconifyIcon from '@/components/IconifyIcon';
-import { LoadingSpinner } from '@/components/Loading';
 import { Logo } from '@/components/Logo';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { Session } from 'next-auth';
@@ -10,6 +9,8 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Dispatch, SetStateAction, useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 interface ProfileDropdownMenuProps {
   setUserIsSigningOut: Dispatch<SetStateAction<boolean>>;
@@ -105,11 +106,11 @@ const Navbar = (props: NavbarProps) => {
             <Badge text="ALPHA" size="lg" color="primary" />
           </Link>
         )}
-        <div className="ml-auto flex h-10 w-10 items-center justify-center rounded-full bg-transparent border border-zinc-300 hover:cursor-pointer">
+        <div className="ml-auto flex h-10 w-10 items-center justify-center rounded-full bg-transparent hover:cursor-pointer">
           {status === 'unauthenticated' && (
             <DropdownMenu.Root>
-              <DropdownMenu.Trigger className="focus:outline-none">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full">
+              <DropdownMenu.Trigger className="focus:outline-none border rounded-full border-zinc-200">
+                <div className="flex h-10 w-10 items-center justify-center">
                   <IconifyIcon
                     icon="ep:user-filled"
                     className="h-5 w-5 text-zinc-500"
@@ -122,7 +123,16 @@ const Navbar = (props: NavbarProps) => {
               />
             </DropdownMenu.Root>
           )}
-          {status === 'loading' && <></>}
+          {status === 'loading' && (
+            <div className="flex items-center justify-center">
+              <Skeleton
+                className="absolute bottom-[2px]"
+                circle={true}
+                height={40}
+                width={40}
+              />
+            </div>
+          )}
           {status === 'authenticated' && (
             <DropdownMenu.Root>
               <DropdownMenu.Trigger className="focus:outline-none">
@@ -137,7 +147,12 @@ const Navbar = (props: NavbarProps) => {
                 )}
                 {userIsSigningOut && (
                   <div className="flex items-center justify-center">
-                    <LoadingSpinner size={40} />
+                    <Skeleton
+                      className="absolute bottom-[2px]"
+                      circle={true}
+                      height={40}
+                      width={40}
+                    />
                   </div>
                 )}
               </DropdownMenu.Trigger>
